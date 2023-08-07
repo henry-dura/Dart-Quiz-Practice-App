@@ -4,20 +4,10 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 class Alert_Dialog{
 
   alertDialogBox(context,int score){
-    String displayWord;
-    AlertType displayIcon;
-    if(score >= 7){
-      displayWord = 'CONGRATULATIONS!';
-      displayIcon = AlertType.success ;
-    }else{
-      displayWord = 'FAILED!';
-      displayIcon = AlertType.error ;
-    }
-
     Alert(
       context: context,
-      type: displayIcon,
-      title: displayWord,
+      type: score >= 7? AlertType.success:AlertType.error,
+      title: score >= 7?'CONGRATULATIONS!':'FAILED!',
       desc: "DART KNOWLEDGE: ${(score/10)*100} %",
       buttons: [
         DialogButton(
